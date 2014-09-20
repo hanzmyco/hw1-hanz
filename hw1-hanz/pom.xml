@@ -105,4 +105,9 @@
       <version>1.3.2</version>
     </dependency>
   </dependencies>
+  <scm>
+  	<url>scm:git:git@github.com:michaelzhhan1990/hw1-hanz</url>
+  	<connection>scm:git:git@github.com:michaelzhhan1990/hw1-hanz</connection>
+  	<developerConnection>scm:git:git@github.com:michaelzhhan1990/hw1-hanz</developerConnection>
+  </scm>
 </project>
