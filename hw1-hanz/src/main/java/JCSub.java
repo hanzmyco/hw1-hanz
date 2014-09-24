@@ -14,8 +14,12 @@ import com.aliasi.util.AbstractExternalizable;
 
 import edu.stanford.nlp.dcoref.CoNLL2011DocumentReader.NamedEntityAnnotation;
 
-
-public class JCSub extends JCasAnnotator_ImplBase {
+/**
+ * this will get the gene
+ * @author Han Zhang
+ *
+ */
+public class JCSub extends JCasAnnotator_ImplBase { // get the chunk
   Chunker chunker;
   @Override
   public void initialize(UimaContext aContext) throws ResourceInitializationException {
@@ -32,11 +36,12 @@ public class JCSub extends JCasAnnotator_ImplBase {
 
     super.initialize(aContext);
   }
+  //find the space
   private static int Spaces(String s,int u)
   {
     return StringUtils.countMatches(s.substring(0, u), " ");
   }
-
+  // find all gene names
   @Override
   public void process(JCas aJCas) throws AnalysisEngineProcessException {
     // TODO Auto-generated method stub
