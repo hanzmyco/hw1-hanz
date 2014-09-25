@@ -10,10 +10,19 @@ import org.apache.uima.jcas.cas.TOP;
 import org.apache.uima.resource.ResourceInitializationException;
 import org.apache.uima.resource.ResourceProcessException;
 
-
+/**
+ * 
+ * @author Han Zhang
+ * get results and write it into output file
+ */
 public class OutConsumer extends CasConsumer_ImplBase {
+  /**
+   * the file writer
+   */
   FileWriter fw;
-  
+  /**
+   * initilize the outputfile which means opens it
+   */
   @Override
   public void initialize() throws ResourceInitializationException {
     try {
@@ -23,7 +32,10 @@ public class OutConsumer extends CasConsumer_ImplBase {
     }
     super.initialize();
   }
-
+ /**
+  * get genes in each CAS and write it in outputfile
+  * @param aCAS the CAS that contains the genes
+  */
   @Override
   public void processCas(CAS aCAS) throws ResourceProcessException {
     try {
@@ -41,7 +53,9 @@ public class OutConsumer extends CasConsumer_ImplBase {
     }
     
   }
-
+ /**
+  * close the output file
+  */
   @Override
   public void destroy() {
     try {

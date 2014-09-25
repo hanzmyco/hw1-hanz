@@ -11,12 +11,24 @@ import org.apache.uima.jcas.JCas;
 import org.apache.uima.resource.ResourceInitializationException;
 import org.apache.uima.util.Progress;
 
-
+/**f
+ * 
+ * @author Han Zhang
+ * read in input files and re-direct it into the CASes
+ */
+        
 public class CR extends CollectionReader_ImplBase {
+  /**
+   * scanner scans the file
+   */
   private Scanner sc;
+  
+  /**
+   * initialize the reading-file 
+   */
   @Override
-  public void initialize() throws ResourceInitializationException {
-    // TODO Auto-generated method stub
+    public void initialize() throws ResourceInitializationException {
+  // TODO Auto-generated method stub
     try{
      sc = new Scanner(new BufferedReader(new FileReader(URLDecoder.decode(getClass().getResource((String) getConfigParameterValue("InputString")).getFile(),"UTF-8"))));
     }catch(Exception e){
@@ -24,7 +36,10 @@ public class CR extends CollectionReader_ImplBase {
     }
     super.initialize();
   }
-
+  /**
+   *  fill next CAS with the next sentence
+   *  @param aCAS the next CAS
+   */
   @Override
   
   public void getNext(CAS aCAS) throws IOException, CollectionException {
@@ -44,20 +59,26 @@ public class CR extends CollectionReader_ImplBase {
     }
 
   }
-
+/**
+ * check if there is next line in file
+ */
   @Override
   public boolean hasNext() throws IOException, CollectionException {
     // TODO Auto-generated method stub
     return sc.hasNext();
     
   }
-
+  /**
+   * get the progress
+   */
   @Override
   public Progress[] getProgress() {
     // TODO Auto-generated method stub
     return null;
   }
-
+  /**
+   * close the file
+   */
   @Override
   public void close() throws IOException {
     // TODO Auto-generated method stub

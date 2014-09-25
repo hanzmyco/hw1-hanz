@@ -19,8 +19,15 @@ import edu.stanford.nlp.dcoref.CoNLL2011DocumentReader.NamedEntityAnnotation;
  * @author Han Zhang
  *
  */
-public class JCSub extends JCasAnnotator_ImplBase { // get the chunk
+public class JCSub extends JCasAnnotator_ImplBase {
+  /**
+   * get the chunk
+   */
   Chunker chunker;
+  
+  /**
+   * loads the model for chunker
+   */
   @Override
   public void initialize(UimaContext aContext) throws ResourceInitializationException {
     // TODO Auto-generated method stub
@@ -36,12 +43,20 @@ public class JCSub extends JCasAnnotator_ImplBase { // get the chunk
 
     super.initialize(aContext);
   }
-  //find the space
+  /**
+   * find the space
+   * @param s  sentence
+   * @param u   end index
+   * @return   numbber of spacese of substring s[0:u]
+   */
   private static int Spaces(String s,int u)
   {
     return StringUtils.countMatches(s.substring(0, u), " ");
   }
-  // find all gene names
+  /**
+   * get all the gene names
+   * @param aJCas Cas contains senteces
+   */
   @Override
   public void process(JCas aJCas) throws AnalysisEngineProcessException {
     // TODO Auto-generated method stub
